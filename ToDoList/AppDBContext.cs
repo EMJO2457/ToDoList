@@ -24,12 +24,5 @@ namespace ToDoList
             base.OnConfiguring(optionsBuilder);
         }
         public AppDBContext() { }
-
-
-
-
-
-
-
     }
 }

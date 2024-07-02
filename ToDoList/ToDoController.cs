@@ -13,6 +13,15 @@ namespace ToDoList
     public class ToDoController
     {
 
+        public List<ToDo_List> GetAll(AppDBContext context)
+        {
+
+            var Master = (from T in context.ToDoList
+                          where T.Status != "completed"
+                          select T).ToList();
+            return Master;
+        }
+
         public ToDo_List GetToDo(List<ToDo_List> Master, int id)
         {
             foreach (ToDo_List toDo in Master)
@@ -30,6 +39,8 @@ namespace ToDoList
         {
 
             {
+
+
                 ToDo_List toDoToUpdate = GetToDo(Master, id);
                 toDoToUpdate.Status = "Completed";
 
@@ -57,17 +68,23 @@ namespace ToDoList
 
             return futureDateTime;
         }
+        public void DeleteItem(int id, AppDBContext context)
+        {
+           
 
+        }
 
         public void AddToDoList(List<ToDo_List> list, ToDo_List Fred, AppDBContext context)
         {
-            
-            Fred.DueDate=setDate();
+
+            Fred.DueDate = setDate();
             list.Add(Fred);
             context.Add(Fred);
             context.SaveChanges();
 
         }
+
+
 
 
 
