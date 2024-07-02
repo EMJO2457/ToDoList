@@ -22,7 +22,7 @@ namespace ToDoList
             }
             return null;
 
-            
+
         }
 
 
@@ -34,7 +34,7 @@ namespace ToDoList
                 toDoToUpdate.Status = "Completed";
 
                 context.Entry(toDoToUpdate).State = EntityState.Modified;
-               
+
 
                 context.SaveChanges();
 
@@ -44,7 +44,30 @@ namespace ToDoList
 
 
 
+        public static DateTime setDate()
+        {
+            // Get the current date and time
+            DateTime today = DateTime.Today;
 
+            // Add 7 days to the current date
+            DateTime futureDate = today.AddDays(7);
+
+            // Optionally, if you need to include the current time as well:
+            DateTime futureDateTime = DateTime.Now.AddDays(7);
+
+            return futureDateTime;
+        }
+
+
+        public void AddToDoList(List<ToDo_List> list, ToDo_List Fred, AppDBContext context)
+        {
+            
+            Fred.DueDate=setDate();
+            list.Add(Fred);
+            context.Add(Fred);
+            context.SaveChanges();
+
+        }
 
 
 

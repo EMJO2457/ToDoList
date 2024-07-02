@@ -13,7 +13,7 @@ namespace ToDoList
 
 
 
-            var NewMaster = (from T in context.ToDoList
+            var Master = (from T in context.ToDoList
                             where T.Status != "completed"
                              select T).ToList(); 
 
@@ -22,19 +22,24 @@ namespace ToDoList
 
 
 
-            cont.UpdateStatus(Master, 2, context);
+            //cont.UpdateStatus(Master, 3, context);
 
             
           
 
-            var ToDo = cont.GetToDo(Master, 1);
+            var GToDo = cont.GetToDo(Master, 1);
 
-            Console.WriteLine(ToDo.Status);
+            Console.WriteLine(GToDo.Status);
 
-            cont.UpdateStatus(Master, 2, context);
-           
+            //cont.UpdateStatus(Master, 2, context);
 
-            Console.WriteLine(ToDo.Status);
+            var toDo = new ToDo_List()
+            {
+                
+            };
+            cont.AddToDoList(Master,toDo, context);
+
+            Console.WriteLine(toDo.Status);
         }
     }
 }

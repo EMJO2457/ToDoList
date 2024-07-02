@@ -13,6 +13,7 @@ namespace ToDoList
 {
     public class ToDo_List
     {
+       
         public int ID { get; set; }
         [StringLength(800)]
         public string Description { get; set; } = string.Empty;
@@ -21,11 +22,6 @@ namespace ToDoList
         [StringLength(30)]
         public string Status { get; set; } = "Active";
         [StringLength(30)]
-        public string Priority { get; set; } = string.Empty;
-
-
-
-
-
+        public string Priority { get; set; } = "Medium";
     }
 }
