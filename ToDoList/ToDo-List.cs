@@ -13,7 +13,11 @@ namespace ToDoList
 {
     public class ToDo_List
     {
-       
+
+        public AppDBContext AppDBContext { get; set; }
+
+        public ToDoController TDC { get; set; }
+
         public int ID { get; set; }
         [StringLength(800)]
         public string Description { get; set; } = string.Empty;

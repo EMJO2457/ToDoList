@@ -7,7 +7,7 @@ namespace TestProject
 {
     public class UnitTest1
     {
-        ToDo_List todo = new ToDo_List();
+        ToDo_List todo = new ToDo_List() { Description="Hello Its me ive been wondering if after all these years youd like to meet to go over everything"};
         ToDoController controller = new ToDoController();
         AppDBContext dbContext = new AppDBContext();
 
